@@ -12,20 +12,30 @@ This study has been designed, developed, and reported by the following investiga
 ## Repository Structure
 ```
 towards-uncertainty-aware-bts
-|   README.md               # This file
-└---mission-specification
-|   |   adaptable_bt.xml    # Adaptable BT of the mission
-|   |   al1.xml             # Navigation alternative 1 (Dust)
-|   |   al2.xml             # Navigation alternative 1 (Rocks)
-|   |   requirements.txt    # FRETISH conditions specification
-|   └---imgs                # Mission BT images
-└---bt_generator    
-└---fretish_syntax
+|   README.md                   # This file
+|   execute_mission.sh          # Script for launching the mission
+|   update_alternatives.sh      # Script for updating the mission with new alternatives
+├---bt-generator
+|   |   condition_tree_gen.py   # Condition-checking subtree generator
+|   |   tree_generator.py       # Uncertainty-aware BT generator
+|   ├---mission
+|   |      fretRequirements.json   # Fretish requirements to be parsed by the condition_tree_gen.py
+|   |      mission.xml          # Adapbtle BT of the mission to be parsed by tree_generator.py
+|   └---resource                # BTs of the alternatives 
+├---fretish-syntax              # ANTLR definition of the FRETISH grammar subset
+└---mission-scenario
+    |   adaptable_bt.xml        # Adaptable BT of the mission
+    |   al1.xml                 # Navigation alternative 1 (Dust)
+    |   al2.xml                 # Navigation alternative 1 (Rocks)
+    |   requirements.txt        # FRETISH conditions specification
+    |   uncertainty_aware_bt.xml    # Uncertainty-aware BT of the mission
+    └---imgs                    # Mission BT images
 ```
 
 ## Instructions
 ### Pre-requisites
 - Docker
+- Python 3
 
 ### Installation
 Clone the forked [Space Ros Docker repository](https://github.com/gianlucafilippone/uncertainty-bt-space-ros-docker):
@@ -96,7 +106,7 @@ Run the BT Manager:
 ros2 launch mars_rover_bt_manager mars_rover_bt_manager_launch.py
 ```
 
-Simulate the runtime conditions by using ROS2 topics:
+To simulate the runtime conditions, open a new terminal as before and publish runtime data by using ROS2 topics:
 
 ```bash
 ros2 topic pub --once /condition_update std_msgs/msg/String "{data: 'OnDust'}"
@@ -108,7 +118,24 @@ or
 ros2 topic pub --once /condition_update std_msgs/msg/String "{data: 'OnRocks'}"
 ```
 
+### Run the uncertainty-aware BT
 
-### Compile and run the uncertainty-aware BT
+Run the `execute_mission.sh` script to send the uncertainty-aware BT to the BT Manager and start its execution:
 
-Run the `execute_mission.sh` script to send the uncertainty-aware BT to the BT Manager and start its execution. The rover's behavior will follow the simulated conditions.
+```bash
+./execute_mission.sh <container-name>
+```
+
+### Addition or update of alternatives
+
+To add new alternatives for the navigation adaptable node, add a new folder within `bt-generator/resource/navigation` folder and add the xml file of the alternative therein.
+Update the `fretRequirements.json` file inside the `bt-generaotr/mission` folder with the new FRETISH requirements.
+
+Run the `update_alternatives.sh` file to update the BT manager:
+
+```bash
+./update_alternatives.sh <container-name>
+```
+
+> [!NOTE]
+> To update the fretRequirements.json file, [FRET](https://github.com/NASA-SW-VnV/fret) is required.

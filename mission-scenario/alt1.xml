@@ -1,0 +1,11 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="dust_terrain">
+        <Sequence>
+            <Fallback>
+                <IsTowardObject/>
+                <TurnRight angle="180"/>
+            </Fallback>
+            <MoveForward time="2" speed="2.0"/>
+        </Sequence>
+    </BehaviorTree>
+</root>

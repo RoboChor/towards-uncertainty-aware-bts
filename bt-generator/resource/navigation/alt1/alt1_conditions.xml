@@ -1,0 +1,9 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="adapt1_alt1_conditions">
+        <Sequence>
+            <OnDust/>
+        </Sequence>
+    </BehaviorTree>
+
+</root>
+

@@ -1,0 +1,146 @@
+[
+    {
+        "reqid": "",
+        "parent_reqid": "",
+        "project": "Default",
+        "rationale": "",
+        "comments": "",
+        "fulltext": "In navigation IF OnDust Mission SHALL SATISFY selected_alt=alt1",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "regular",
+            "timing": "null",
+            "response": "satisfaction",
+            "variables": [
+                "navigation",
+                "OnDust",
+                "selected_alt",
+                "alt1"
+            ],
+            "scope_mode": "navigation",
+            "scopeTextRange": [
+                0,
+                12
+            ],
+            "qualifier_word": "if",
+            "pre_condition": "(OnDust)",
+            "regular_condition": "(OnDust)",
+            "conditionTextRange": [
+                14,
+                22
+            ],
+            "component_name": "Mission",
+            "componentTextRange": [
+                24,
+                30
+            ],
+            "post_condition": "(selected_alt = alt1)",
+            "responseTextRange": [
+                38,
+                62
+            ],
+            "diagramVariables": "M = <b><i>navigation</i></b>, TC = <b><i>(OnDust)</i></b>, Response = <b><i>(selected_alt = alt1)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>navigation</i></b> holds.\nTRIGGER: first point in the interval if <b><i>(OnDust)</i></b> is true and any point in the interval where <b><i>(OnDust)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_regular_null_satisfaction.svg",
+            "scope_mode_pt": "navigation",
+            "scope_mode_ft": "navigation",
+            "regular_condition_unexp_pt": "OnDust",
+            "regular_condition_unexp_ft": "OnDust",
+            "regular_condition_SMV_pt": "OnDust",
+            "regular_condition_SMV_ft": "OnDust",
+            "post_condition_unexp_pt": "(selected_alt = alt1)",
+            "post_condition_unexp_ft": "(selected_alt = alt1)",
+            "post_condition_SMV_pt": "(selected_alt = alt1)",
+            "post_condition_SMV_ft": "(selected_alt = alt1)",
+            "ft_fetched": "((LAST V ((! (Fin_$scope_mode_ft$ & (! LAST))) | (X (((Lin_$scope_mode_ft$ | LAST) V (((! $regular_condition_unexp_ft$) & ((! LAST) & ((X $regular_condition_unexp_ft$) & (! (Lin_$scope_mode_ft$ | LAST))))) -> ((X ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)) & (! (Lin_$scope_mode_ft$ | LAST))))) & ($regular_condition_unexp_ft$ -> ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)))))) & ($scope_mode_ft$ -> (((Lin_$scope_mode_ft$ | LAST) V (((! $regular_condition_unexp_ft$) & ((! LAST) & ((X $regular_condition_unexp_ft$) & (! (Lin_$scope_mode_ft$ | LAST))))) -> ((X ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)) & (! (Lin_$scope_mode_ft$ | LAST))))) & ($regular_condition_unexp_ft$ -> ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)))))",
+            "ft": "((LAST V ((! (Fin_navigation & (! LAST))) | (X (((Lin_navigation | LAST) V (((! OnDust) & ((! LAST) & ((X OnDust) & (! (Lin_navigation | LAST))))) -> ((X ((! (Lin_navigation | LAST)) U (selected_alt = alt1))) & (! (Lin_navigation | LAST))))) & (OnDust -> ((! (Lin_navigation | LAST)) U (selected_alt = alt1))))))) & (navigation -> (((Lin_navigation | LAST) V (((! OnDust) & ((! LAST) & ((X OnDust) & (! (Lin_navigation | LAST))))) -> ((X ((! (Lin_navigation | LAST)) U (selected_alt = alt1))) & (! (Lin_navigation | LAST))))) & (OnDust -> ((! (Lin_navigation | LAST)) U (selected_alt = alt1))))))",
+            "pt_fetched": "((H (Lin_$scope_mode_pt$ -> (Y (((! $regular_condition_unexp_pt$) S ((! $regular_condition_unexp_pt$) & Fin_$scope_mode_pt$)) | (! ((! $post_condition_unexp_pt$) S ((! $post_condition_unexp_pt$) & ($regular_condition_unexp_pt$ & ((Y (! $regular_condition_unexp_pt$)) | Fin_$scope_mode_pt$))))))))) & (((! Lin_$scope_mode_pt$) S ((! Lin_$scope_mode_pt$) & Fin_$scope_mode_pt$)) -> (((! $regular_condition_unexp_pt$) S ((! $regular_condition_unexp_pt$) & Fin_$scope_mode_pt$)) | (! ((! $post_condition_unexp_pt$) S ((! $post_condition_unexp_pt$) & ($regular_condition_unexp_pt$ & ((Y (! $regular_condition_unexp_pt$)) | Fin_$scope_mode_pt$))))))))",
+            "pt": "((H (Lin_navigation -> (Y (((! OnDust) S ((! OnDust) & Fin_navigation)) | (! ((! (selected_alt = alt1)) S ((! (selected_alt = alt1)) & (OnDust & ((Y (! OnDust)) | Fin_navigation))))))))) & (((! Lin_navigation) S ((! Lin_navigation) & Fin_navigation)) -> (((! OnDust) S ((! OnDust) & Fin_navigation)) | (! ((! (selected_alt = alt1)) S ((! (selected_alt = alt1)) & (OnDust & ((Y (! OnDust)) | Fin_navigation))))))))",
+            "ptExpanded_fetched": "((H (((! $scope_mode_pt$) & (Y $scope_mode_pt$)) -> (Y (((! $regular_condition_SMV_pt$) S ((! $regular_condition_SMV_pt$) & ($scope_mode_pt$ & (Z (! $scope_mode_pt$))))) | (! ((! $post_condition_SMV_pt$) S ((! $post_condition_SMV_pt$) & ($regular_condition_SMV_pt$ & ((Y (! $regular_condition_SMV_pt$)) | ($scope_mode_pt$ & (Z (! $scope_mode_pt$)))))))))))) & (((! ((! $scope_mode_pt$) & (Y $scope_mode_pt$))) S ((! ((! $scope_mode_pt$) & (Y $scope_mode_pt$))) & ($scope_mode_pt$ & (Z (! $scope_mode_pt$))))) -> (((! $regular_condition_SMV_pt$) S ((! $regular_condition_SMV_pt$) & ($scope_mode_pt$ & (Z (! $scope_mode_pt$))))) | (! ((! $post_condition_SMV_pt$) S ((! $post_condition_SMV_pt$) & ($regular_condition_SMV_pt$ & ((Y (! $regular_condition_SMV_pt$)) | ($scope_mode_pt$ & (Z (! $scope_mode_pt$)))))))))))",
+            "ptExpanded": "((H (((! navigation) & (Y navigation)) -> (Y (((! OnDust) S ((! OnDust) & (navigation & (Z (! navigation))))) | (! ((! (selected_alt = alt1)) S ((! (selected_alt = alt1)) & (OnDust & ((Y (! OnDust)) | (navigation & (Z (! navigation)))))))))))) & (((! ((! navigation) & (Y navigation))) S ((! ((! navigation) & (Y navigation))) & (navigation & (Z (! navigation))))) -> (((! OnDust) S ((! OnDust) & (navigation & (Z (! navigation))))) | (! ((! (selected_alt = alt1)) S ((! (selected_alt = alt1)) & (OnDust & ((Y (! OnDust)) | (navigation & (Z (! navigation)))))))))))",
+            "CoCoSpecCode": "(H(((not (navigation) and YtoPre(navigation)) => YtoPre((SI((navigation and ZtoPre(not (navigation))),not (OnDust)) or not (SI((OnDust and (YtoPre(not (OnDust)) or (navigation and ZtoPre(not (navigation))))),not ((selected_alt = alt1)))))))) and (SI((navigation and ZtoPre(not (navigation))),not ((not (navigation) and YtoPre(navigation)))) => (SI((navigation and ZtoPre(not (navigation))),not (OnDust)) or not (SI((OnDust and (YtoPre(not (OnDust)) or (navigation and ZtoPre(not (navigation))))),not ((selected_alt = alt1)))))))",
+            "ftExpanded_fetched": "((LAST V ((! ((((! $scope_mode_ft$) & (! LAST)) & (X $scope_mode_ft$)) & (! LAST))) | (X ((((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST) V (((! $regular_condition_SMV_ft$) & ((! LAST) & ((X $regular_condition_SMV_ft$) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) -> ((X ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) & ($regular_condition_SMV_ft$ -> ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)))))) & ($scope_mode_ft$ -> ((((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST) V (((! $regular_condition_SMV_ft$) & ((! LAST) & ((X $regular_condition_SMV_ft$) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) -> ((X ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) & ($regular_condition_SMV_ft$ -> ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)))))",
+            "ftExpandedUnoptimized": "((LAST V ((! ((((! navigation) & (! LAST)) & (X navigation)) & (! LAST))) | (X (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnDust) & ((! LAST) & ((X OnDust) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnDust -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))))))) & (navigation -> (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnDust) & ((! LAST) & ((X OnDust) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnDust -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))))))",
+            "ftExpanded": "((LAST V ((! ((((! navigation) & (! LAST)) & (X navigation)) & (! LAST))) | (X (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnDust) & ((! LAST) & ((X OnDust) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnDust -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))))))) & (navigation -> (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnDust) & ((! LAST) & ((X OnDust) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnDust -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt1))))))",
+            "ftInfAUExpanded_fetched": "((G ((! (((! $scope_mode_ft$) & (! LAST)) & (X $scope_mode_ft$))) | (X (((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) V (((! $regular_condition_SMV_ft$) & ((X $regular_condition_SMV_ft$) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))))) -> ((X ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))))))) & ($regular_condition_SMV_ft$ -> ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)))))) & ($scope_mode_ft$ -> (((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) V (((! $regular_condition_SMV_ft$) & ((X $regular_condition_SMV_ft$) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))))) -> ((X ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))))))) & ($regular_condition_SMV_ft$ -> ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)))))",
+            "ftInfAUExpanded": "((G ((! ((! navigation) & (X navigation))) | (X (((navigation & (X (! navigation))) V (((! OnDust) & ((X OnDust) & (! (navigation & (X (! navigation)))))) -> ((X ((! (navigation & (X (! navigation)))) U (selected_alt = alt1))) & (! (navigation & (X (! navigation))))))) & (OnDust -> ((! (navigation & (X (! navigation)))) U (selected_alt = alt1))))))) & (navigation -> (((navigation & (X (! navigation))) V (((! OnDust) & ((X OnDust) & (! (navigation & (X (! navigation)))))) -> ((X ((! (navigation & (X (! navigation)))) U (selected_alt = alt1))) & (! (navigation & (X (! navigation))))))) & (OnDust -> ((! (navigation & (X (! navigation)))) U (selected_alt = alt1))))))",
+            "component": "Mission"
+        },
+        "_id": "45f6e540-a359-11ef-96f5-53ae8192a602"
+    },
+    {
+        "reqid": "",
+        "parent_reqid": "",
+        "project": "Default",
+        "rationale": "",
+        "comments": "",
+        "fulltext": "In navigation IF OnRock Mission SHALL SATISFY selected_alt=alt2",
+        "semantics": {
+            "type": "nasa",
+            "scope": {
+                "type": "in"
+            },
+            "condition": "regular",
+            "timing": "null",
+            "response": "satisfaction",
+            "variables": [
+                "navigation",
+                "OnRock",
+                "selected_alt",
+                "alt2"
+            ],
+            "scope_mode": "navigation",
+            "scopeTextRange": [
+                0,
+                12
+            ],
+            "qualifier_word": "if",
+            "pre_condition": "(OnRock)",
+            "regular_condition": "(OnRock)",
+            "conditionTextRange": [
+                14,
+                22
+            ],
+            "component_name": "Mission",
+            "componentTextRange": [
+                24,
+                30
+            ],
+            "post_condition": "(selected_alt = alt2)",
+            "responseTextRange": [
+                38,
+                62
+            ],
+            "diagramVariables": "M = <b><i>navigation</i></b>, TC = <b><i>(OnRock)</i></b>, Response = <b><i>(selected_alt = alt2)</i></b>.",
+            "description": "ENFORCED: in every interval where <b><i>navigation</i></b> holds.\nTRIGGER: first point in the interval if <b><i>(OnRock)</i></b> is true and any point in the interval where <b><i>(OnRock)</i></b> becomes true (from false).\nREQUIRES: for every trigger, RES must hold at some time point between (and including) the trigger and the end of the interval.",
+            "diagram": "_media/user-interface/examples/svgDiagrams/in_regular_null_satisfaction.svg",
+            "scope_mode_pt": "navigation",
+            "scope_mode_ft": "navigation",
+            "regular_condition_unexp_pt": "OnRock",
+            "regular_condition_unexp_ft": "OnRock",
+            "regular_condition_SMV_pt": "OnRock",
+            "regular_condition_SMV_ft": "OnRock",
+            "post_condition_unexp_pt": "(selected_alt = alt2)",
+            "post_condition_unexp_ft": "(selected_alt = alt2)",
+            "post_condition_SMV_pt": "(selected_alt = alt2)",
+            "post_condition_SMV_ft": "(selected_alt = alt2)",
+            "ft_fetched": "((LAST V ((! (Fin_$scope_mode_ft$ & (! LAST))) | (X (((Lin_$scope_mode_ft$ | LAST) V (((! $regular_condition_unexp_ft$) & ((! LAST) & ((X $regular_condition_unexp_ft$) & (! (Lin_$scope_mode_ft$ | LAST))))) -> ((X ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)) & (! (Lin_$scope_mode_ft$ | LAST))))) & ($regular_condition_unexp_ft$ -> ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)))))) & ($scope_mode_ft$ -> (((Lin_$scope_mode_ft$ | LAST) V (((! $regular_condition_unexp_ft$) & ((! LAST) & ((X $regular_condition_unexp_ft$) & (! (Lin_$scope_mode_ft$ | LAST))))) -> ((X ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)) & (! (Lin_$scope_mode_ft$ | LAST))))) & ($regular_condition_unexp_ft$ -> ((! (Lin_$scope_mode_ft$ | LAST)) U $post_condition_unexp_ft$)))))",
+            "ft": "((LAST V ((! (Fin_navigation & (! LAST))) | (X (((Lin_navigation | LAST) V (((! OnRock) & ((! LAST) & ((X OnRock) & (! (Lin_navigation | LAST))))) -> ((X ((! (Lin_navigation | LAST)) U (selected_alt = alt2))) & (! (Lin_navigation | LAST))))) & (OnRock -> ((! (Lin_navigation | LAST)) U (selected_alt = alt2))))))) & (navigation -> (((Lin_navigation | LAST) V (((! OnRock) & ((! LAST) & ((X OnRock) & (! (Lin_navigation | LAST))))) -> ((X ((! (Lin_navigation | LAST)) U (selected_alt = alt2))) & (! (Lin_navigation | LAST))))) & (OnRock -> ((! (Lin_navigation | LAST)) U (selected_alt = alt2))))))",
+            "pt_fetched": "((H (Lin_$scope_mode_pt$ -> (Y (((! $regular_condition_unexp_pt$) S ((! $regular_condition_unexp_pt$) & Fin_$scope_mode_pt$)) | (! ((! $post_condition_unexp_pt$) S ((! $post_condition_unexp_pt$) & ($regular_condition_unexp_pt$ & ((Y (! $regular_condition_unexp_pt$)) | Fin_$scope_mode_pt$))))))))) & (((! Lin_$scope_mode_pt$) S ((! Lin_$scope_mode_pt$) & Fin_$scope_mode_pt$)) -> (((! $regular_condition_unexp_pt$) S ((! $regular_condition_unexp_pt$) & Fin_$scope_mode_pt$)) | (! ((! $post_condition_unexp_pt$) S ((! $post_condition_unexp_pt$) & ($regular_condition_unexp_pt$ & ((Y (! $regular_condition_unexp_pt$)) | Fin_$scope_mode_pt$))))))))",
+            "pt": "((H (Lin_navigation -> (Y (((! OnRock) S ((! OnRock) & Fin_navigation)) | (! ((! (selected_alt = alt2)) S ((! (selected_alt = alt2)) & (OnRock & ((Y (! OnRock)) | Fin_navigation))))))))) & (((! Lin_navigation) S ((! Lin_navigation) & Fin_navigation)) -> (((! OnRock) S ((! OnRock) & Fin_navigation)) | (! ((! (selected_alt = alt2)) S ((! (selected_alt = alt2)) & (OnRock & ((Y (! OnRock)) | Fin_navigation))))))))",
+            "ptExpanded_fetched": "((H (((! $scope_mode_pt$) & (Y $scope_mode_pt$)) -> (Y (((! $regular_condition_SMV_pt$) S ((! $regular_condition_SMV_pt$) & ($scope_mode_pt$ & (Z (! $scope_mode_pt$))))) | (! ((! $post_condition_SMV_pt$) S ((! $post_condition_SMV_pt$) & ($regular_condition_SMV_pt$ & ((Y (! $regular_condition_SMV_pt$)) | ($scope_mode_pt$ & (Z (! $scope_mode_pt$)))))))))))) & (((! ((! $scope_mode_pt$) & (Y $scope_mode_pt$))) S ((! ((! $scope_mode_pt$) & (Y $scope_mode_pt$))) & ($scope_mode_pt$ & (Z (! $scope_mode_pt$))))) -> (((! $regular_condition_SMV_pt$) S ((! $regular_condition_SMV_pt$) & ($scope_mode_pt$ & (Z (! $scope_mode_pt$))))) | (! ((! $post_condition_SMV_pt$) S ((! $post_condition_SMV_pt$) & ($regular_condition_SMV_pt$ & ((Y (! $regular_condition_SMV_pt$)) | ($scope_mode_pt$ & (Z (! $scope_mode_pt$)))))))))))",
+            "ptExpanded": "((H (((! navigation) & (Y navigation)) -> (Y (((! OnRock) S ((! OnRock) & (navigation & (Z (! navigation))))) | (! ((! (selected_alt = alt2)) S ((! (selected_alt = alt2)) & (OnRock & ((Y (! OnRock)) | (navigation & (Z (! navigation)))))))))))) & (((! ((! navigation) & (Y navigation))) S ((! ((! navigation) & (Y navigation))) & (navigation & (Z (! navigation))))) -> (((! OnRock) S ((! OnRock) & (navigation & (Z (! navigation))))) | (! ((! (selected_alt = alt2)) S ((! (selected_alt = alt2)) & (OnRock & ((Y (! OnRock)) | (navigation & (Z (! navigation)))))))))))",
+            "CoCoSpecCode": "(H(((not (navigation) and YtoPre(navigation)) => YtoPre((SI((navigation and ZtoPre(not (navigation))),not (OnRock)) or not (SI((OnRock and (YtoPre(not (OnRock)) or (navigation and ZtoPre(not (navigation))))),not ((selected_alt = alt2)))))))) and (SI((navigation and ZtoPre(not (navigation))),not ((not (navigation) and YtoPre(navigation)))) => (SI((navigation and ZtoPre(not (navigation))),not (OnRock)) or not (SI((OnRock and (YtoPre(not (OnRock)) or (navigation and ZtoPre(not (navigation))))),not ((selected_alt = alt2)))))))",
+            "ftExpanded_fetched": "((LAST V ((! ((((! $scope_mode_ft$) & (! LAST)) & (X $scope_mode_ft$)) & (! LAST))) | (X ((((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST) V (((! $regular_condition_SMV_ft$) & ((! LAST) & ((X $regular_condition_SMV_ft$) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) -> ((X ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) & ($regular_condition_SMV_ft$ -> ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)))))) & ($scope_mode_ft$ -> ((((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST) V (((! $regular_condition_SMV_ft$) & ((! LAST) & ((X $regular_condition_SMV_ft$) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) -> ((X ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)) & (! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST))))) & ($regular_condition_SMV_ft$ -> ((! ((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) | LAST)) U $post_condition_SMV_ft$)))))",
+            "ftExpandedUnoptimized": "((LAST V ((! ((((! navigation) & (! LAST)) & (X navigation)) & (! LAST))) | (X (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnRock) & ((! LAST) & ((X OnRock) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnRock -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))))))) & (navigation -> (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnRock) & ((! LAST) & ((X OnRock) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnRock -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))))))",
+            "ftExpanded": "((LAST V ((! ((((! navigation) & (! LAST)) & (X navigation)) & (! LAST))) | (X (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnRock) & ((! LAST) & ((X OnRock) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnRock -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))))))) & (navigation -> (((((navigation & (! LAST)) & (X (! navigation))) | LAST) V (((! OnRock) & ((! LAST) & ((X OnRock) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) -> ((X ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))) & (! (((navigation & (! LAST)) & (X (! navigation))) | LAST))))) & (OnRock -> ((! (((navigation & (! LAST)) & (X (! navigation))) | LAST)) U (selected_alt = alt2))))))",
+            "ftInfAUExpanded_fetched": "((G ((! (((! $scope_mode_ft$) & (! LAST)) & (X $scope_mode_ft$))) | (X (((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) V (((! $regular_condition_SMV_ft$) & ((X $regular_condition_SMV_ft$) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))))) -> ((X ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))))))) & ($regular_condition_SMV_ft$ -> ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)))))) & ($scope_mode_ft$ -> (((($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))) V (((! $regular_condition_SMV_ft$) & ((X $regular_condition_SMV_ft$) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))))) -> ((X ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)) & (! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$))))))) & ($regular_condition_SMV_ft$ -> ((! (($scope_mode_ft$ & (! LAST)) & (X (! $scope_mode_ft$)))) U $post_condition_SMV_ft$)))))",
+            "ftInfAUExpanded": "((G ((! ((! navigation) & (X navigation))) | (X (((navigation & (X (! navigation))) V (((! OnRock) & ((X OnRock) & (! (navigation & (X (! navigation)))))) -> ((X ((! (navigation & (X (! navigation)))) U (selected_alt = alt2))) & (! (navigation & (X (! navigation))))))) & (OnRock -> ((! (navigation & (X (! navigation)))) U (selected_alt = alt2))))))) & (navigation -> (((navigation & (X (! navigation))) V (((! OnRock) & ((X OnRock) & (! (navigation & (X (! navigation)))))) -> ((X ((! (navigation & (X (! navigation)))) U (selected_alt = alt2))) & (! (navigation & (X (! navigation))))))) & (OnRock -> ((! (navigation & (X (! navigation)))) U (selected_alt = alt2))))))",
+            "component": "Mission"
+        },
+        "_id": "45f70c50-a359-11ef-96f5-53ae8192a602"
+    }
+]

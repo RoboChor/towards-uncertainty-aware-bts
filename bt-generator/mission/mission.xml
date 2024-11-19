@@ -1,0 +1,33 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="MainTree">
+        <Sequence name="root_sequence">
+            <Fallback>
+                <IsInLocation/>
+                <Adaptable ID="navigation"/>
+            </Fallback>
+            <Stop/>
+            <Sequence>
+                <Fallback>
+                    <IsArmInPosition function="drilling"/>
+                    <OpenToolArm/>
+                </Fallback>
+                <Fallback>
+                    <IsDigged/>
+                    <Drill/>
+                </Fallback>
+                <Fallback>
+                    <IsContainerEmpty/>
+                    <Trickle/>
+                </Fallback>
+                <Fallback>
+                    <IsPictureTaken/>
+                    <TakePicture/>
+                </Fallback>
+                <Fallback>
+                    <IsArmInPosition function="closing_arm"/>
+                    <CloseToolArm/>
+                </Fallback>
+            </Sequence>
+        </Sequence>
+    </BehaviorTree>
+</root>

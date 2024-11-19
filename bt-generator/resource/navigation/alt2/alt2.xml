@@ -1,0 +1,20 @@
+<root main_tree_to_execute = "MainTree">
+	<BehaviorTree ID="rock_terrain">
+		<Sequence>
+			<Fallback>
+				<Inverter>
+					<IsTowardObject/>
+				</Inverter>
+				<Fallback>
+					<IsRockAtLeft/>
+					<TurnRight angle="180"/>
+				</Fallback>
+				<Fallback>
+					<IsRockAtRight/>
+					<TurnLeft angle="180"/>
+				</Fallback>
+			</Fallback>
+			<MoveBackward time="10" speed="0.4"/>
+		</Sequence>
+    </BehaviorTree>
+</root>

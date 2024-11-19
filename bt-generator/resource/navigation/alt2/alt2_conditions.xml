@@ -1,0 +1,9 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="adapt1_alt2_conditions">
+        <Sequence>
+            <OnRock/>
+        </Sequence>
+    </BehaviorTree>
+
+</root>
+

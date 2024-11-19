@@ -1,0 +1,42 @@
+<root main_tree_to_execute="MainTree">
+
+	<BehaviorTree ID="navigation"><Fallback><Sequence><SubTree ID="adapt1_alt1_conditions" /><SubTree ID="dust_terrain" /></Sequence><Sequence><SubTree ID="adapt1_alt2_conditions" /><SubTree ID="rock_terrain" /></Sequence></Fallback></BehaviorTree><BehaviorTree ID="dust_terrain">
+        <Sequence>
+            <Fallback>
+                <IsTowardObject />
+                <TurnRight angle="180" />
+            </Fallback>
+            <MoveForward time="2" speed="2.0" />
+        </Sequence>
+    </BehaviorTree>
+<BehaviorTree ID="adapt1_alt1_conditions">
+        <Sequence>
+            <OnDust />
+        </Sequence>
+    </BehaviorTree>
+
+<BehaviorTree ID="rock_terrain">
+		<Sequence>
+			<Fallback>
+				<Inverter>
+					<IsTowardObject />
+				</Inverter>
+				<Fallback>
+					<IsRockAtLeft />
+					<TurnRight angle="180" />
+				</Fallback>
+				<Fallback>
+					<IsRockAtRight />
+					<TurnLeft angle="180" />
+				</Fallback>
+			</Fallback>
+			<MoveBackward time="10" speed="0.4" />
+		</Sequence>
+    </BehaviorTree>
+<BehaviorTree ID="adapt1_alt2_conditions">
+        <Sequence>
+            <OnRock />
+        </Sequence>
+    </BehaviorTree>
+
+</root>

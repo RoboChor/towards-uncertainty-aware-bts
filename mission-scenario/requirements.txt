@@ -1,0 +1,2 @@
+In navigation IF OnDust Mission SHALL SATISFY selected_alt=alt1
+In navigation IF OnRock Mission SHALL SATISFY selected_alt=alt2
