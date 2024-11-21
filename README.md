@@ -19,7 +19,7 @@ towards-uncertainty-aware-bts
 |   |   condition_tree_gen.py   # Condition-checking subtree generator
 |   |   tree_generator.py       # Uncertainty-aware BT generator
 |   ├---mission
-|   |      fretRequirements.json   # Fretish requirements to be parsed by the condition_tree_gen.py
+|   |      fretRequirements.json    # Fretish requirements to be parsed by the condition_tree_gen.py
 |   |      mission.xml          # Adapbtle BT of the mission to be parsed by tree_generator.py
 |   └---resource                # BTs of the alternatives 
 ├---fretish-syntax              # ANTLR definition of the FRETISH grammar subset
@@ -32,7 +32,38 @@ towards-uncertainty-aware-bts
     └---imgs                    # Mission BT images
 ```
 
-## Instructions
+### BT Manager
+The BT Manager implementation is provided within the forked [Space ROS Demo repository](https://github.com/gianlucafilippone/spaceros-demos).
+
+## Example mission
+
+### Adaptable Behavior Tree
+<p align="center">
+  <img src="/mission-scenario/imgs/adaptable_bt.png" alt="adaptable behavior tree">
+</p>
+
+### Provided behavior alternatives
+Robot's navigation on dust terrain (`alt1`):
+<p align="center">
+  <img src="/mission-scenario/imgs/alt1.png" alt="on dust alternative">
+</p>
+
+Fretish requirement:
+```
+In navigation IF OnDust Mission SHALL SATISFY selected_alt=alt1
+```
+
+Robot's navigation on rocks (`alt2`):
+<p align="center">
+  <img src="/mission-scenario/imgs/alt2.png" alt="on rocks alternative">
+</p>
+
+Fretish requirement:
+```
+In navigation IF OnRock Mission SHALL SATISFY selected_alt=alt2
+```
+
+## Instructionss
 ### Pre-requisites
 - Docker
 - Python 3
@@ -136,6 +167,8 @@ Run the `update_alternatives.sh` file to update the BT manager:
 ```bash
 ./update_alternatives.sh <container-name>
 ```
+
+The robot will update its mission or start executing it.
 
 > [!NOTE]
 > To update the fretRequirements.json file, [FRET](https://github.com/NASA-SW-VnV/fret) is required.
